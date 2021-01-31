@@ -48,6 +48,49 @@ class Subject{
 		
 	}
 
+	public static function getUserLesson(){
+		
+		$userId = $_SESSION["PersonID"];
+		$ValueListArray = array();
+		
+		$mysql = pdodb::getInstance();
+		$query = "select * from persons
+		join person_lesson on persons.PersonID=person_lesson.personid
+		join lesson on lesson.id = person_lesson.lessonid
+		where persons.PersonID=?";
+		$mysql->Prepare($query);
+
+		$res = $mysql->ExecuteStatement(array($userId));
+
+		$lesson="";
+		while($rec = $res->fetch())
+		{
+			$lesson .="<option  value='a'>". $rec['title'] ."</option>";
+		}
+		return $lesson;
+	}
+
+	public static function setLessonSubject($lessonID , $subjectID){
+		// $userId = $_SESSION["UserID"];
+		// $ValueListArray = array();
+
+		// $mysql = pdodb::getInstance();
+		// $query = "select * from persons
+		// join person_lesson on persons.PersonID=person_lesson.personid
+		// join lesson on lesson.id = person_lesson.lessonid
+		// where persons.PersonID=1";
+		// $mysql->Prepare($query);
+
+		// $res = $mysql->ExecuteStatement(array($userId));
+
+		// $lesson="";
+		// while($rec = $res->fetch())
+		// {
+		// 	$lesson .="<option  value='a'>". $rec['title'] ."</option>";
+		// }
+		// return $lesson;
+	}
+
 
 }
 
