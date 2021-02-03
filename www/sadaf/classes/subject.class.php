@@ -91,7 +91,7 @@ class Subject{
 	}
 
 	public static function getLessonSubject($lessonID){
-		//$userId = $_SESSION["PersonID"];
+
 		$ValueListArray = array();
 		
 		$mysql = pdodb::getInstance();
