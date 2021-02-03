@@ -53,9 +53,16 @@ class Lesson{
 		$lesson="";
 		while($rec = $res->fetch())
 		{
-            echo "<tr><td>".$rec["title"]."</td></tr>";
+            echo "<tr>";
+            echo "<td>";
+            $CName = "le_".$rec["id"];
+            echo "<input type=checkbox name='".$CName."'  id='".$CName."'>";
+            echo "</td>";
+            echo "<td>".$rec["id"]."</td>";
+            echo "<td>".$rec["code"]."</td>";
+            echo "<td>".$rec["title"]."</td>";
+            echo "</tr>";
 		}
-		return $lesson;
     }
     
     public static function getAllLessons(){
@@ -69,9 +76,39 @@ class Lesson{
 		$lesson="";
 		while($rec = $res->fetch())
 		{
-            echo "<tr><td>".$rec["title"]."</td></tr>";
+            echo "<tr>";
+            echo "<td>".$rec["id"]."</td>";
+            echo "<td>".$rec["code"]."</td>";
+            echo "<td>".$rec["title"]."</td>";
+            echo "</tr>";
 		}
 		return $lesson;
+    }
+    
+    public static function DeleteLessons(){
+		
+		$userId = $_SESSION["PersonID"];
+		
+		$mysql = pdodb::getInstance();
+		$query = "select * from persons
+		join person_lesson on persons.PersonID=person_lesson.personid
+		join lesson on lesson.id = person_lesson.lessonid
+		where persons.PersonID=?";
+		$mysql->Prepare($query);
+
+        $res = $mysql->ExecuteStatement(array($userId));
+        
+		while($rec = $res->fetch())
+		{
+            $CName="le_".$rec["id"];
+            if(isset($_REQUEST[$CName])){
+                $query="delete from lesson where id=".$rec["id"];
+                $query.="delete from person_lesson where lessonid=".$rec["id"];
+                $mysql->Execute($query);
+
+            }
+            echo $rec["title"];
+		}
 	}
 
 	
