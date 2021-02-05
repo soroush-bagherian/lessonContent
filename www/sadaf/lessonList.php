@@ -20,7 +20,7 @@ HTMLBegin();
         <form class="col-md-12 bg-color bg-info text-white center" style="margin-bottom:5%; margin-top:5%; padding:5px;" >
             <div class="form-group ">
                 درس های خودم<input type="radio" name="mine" value="others" style=" margin-right:5%;">
-                درس های دیگران <input type="radio" name="mine" value="mine1" style="margin-right:2%; margin-top:2%;">
+                درس های دیگران <input type="radio" name="mine" value="mine1" style="margin-right:2%; margin-top:2%; " checked>
             </div>
             <button name="show_lesson" type="submit" class="btn btn-primary " style="margin:1vw; margin-right:1.8vw;">نمایش</button>
         </form>
