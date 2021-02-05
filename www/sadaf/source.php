@@ -6,8 +6,7 @@ include("classes/source.class.php");
 include("classes/subject.class.php");
         
 HTMLBegin();
-echo "  <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy='origin'></script>
-<script>tinymce.init({ selector:'textarea' });</script> ";      
+    
 ?>
 <body>
 
@@ -81,8 +80,6 @@ else if(isset($_REQUEST["add_tag"])){
           </div>";
          }      
 }
-
-
 
 else if(isset($_REQUEST["add_file"])){
   if(empty($_REQUEST["title"]) || empty($_REQUEST["description"]) || empty($_FILES["fileToUpload"])){
@@ -164,7 +161,6 @@ else if(isset($_REQUEST["add_hall"])){
          }  
 } 
 
-
 else if(isset($_REQUEST["add_source"])){
 
   $lessonId =(int) $_REQUEST["source_lesson"];
@@ -198,6 +194,9 @@ else if(isset($_REQUEST["add_source"])){
   }
 }
 
+
+echo "  <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy='origin'></script>
+<script>tinymce.init({ selector:'textarea' });</script> ";  
 ?>
 
 </body>
