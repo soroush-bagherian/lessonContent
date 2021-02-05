@@ -348,12 +348,15 @@ COMMIT;
 
 
 
+<<<<<<< HEAD
+=======
 
 
 
 
 
 
+>>>>>>> 98268fd43699196de5af570d5d83c0cfa105e79f
 INSERT INTO sadaf.SpecialPages VALUES (1,'main.php'),(2,'/main.php'),(3,'/Menu.php'),(4,'/MainContent.php'),(5,'/ChangePassword.php'),(6,'/MyActions.php'),(7,'/SelectPersonel.php'),(8,'/SelectCustomer.php'),(9,'/SelectStaff.php'),(10,'/GetExamItemPrice.php');
 
 

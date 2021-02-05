@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 include("header.inc.php");
 include("classes/subject.class.php");
@@ -11,8 +8,8 @@ if(isset($_REQUEST["add_subject"])){
     $lessonId =(int) $_REQUEST["subjects"];
     $subjectId = Subject::GetLastID("subject") + 1;
 
-    $isAddSubject =Subject::add($title,$lessonId);
-    $isAddSubject_lesson =Subject::setLessonSubject($lessonId ,$subjectId);
+    $isAddSubject =Subject::add($title);
+    $isAddSubject_lesson =Subject::setLessonSubject($subjectId ,$lessonId);
 
     if($isAddSubject and  $isAddSubject_lesson){
       echo "<div class='alert alert-success' role='alert'>
@@ -21,6 +18,8 @@ if(isset($_REQUEST["add_subject"])){
     }
    
 }
+
+
 
         
 HTMLBegin();      
@@ -41,6 +40,22 @@ HTMLBegin();
   </div>
   <button name="add_subject" type="submit" class="btn btn-primary">افزودن</button>
 </form>
+
+<?php
+ if(isset($_REQUEST["edit"])){
+  if(Subject::edit_subject($_REQUEST["sId"] ,$_REQUEST["sTitle"])){
+    echo "<div class='col-md-10 alert alert-success' role='alert' style='margin:5%;'>
+        با موفقیت بروزرسانی شد!
+        </div>";
+       }else{
+        echo "<div class='col-md-10 alert alert-danger' role='alert' style='margin:5%;'>
+        خطا در بروزرسانی
+        </div>";
+       }
+}
+ Subject::edit_subject_form();
+
+?>
 
 </body>
 </html>
