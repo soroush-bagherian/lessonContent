@@ -19,13 +19,14 @@ class Subject{
 		$query .= ", title";
 		$query .= ") values (";
 		$query .= "? , ? ";
-		$query .= ")";
+		$query .= ");";
 		$ValueListArray = array();
 
 
 		$id = Subject::GetLastID("subject");
 		if($id==-1){$id=1;}
 		else{$id = $id+1;}
+
 
 		array_push($ValueListArray, $id); 
 		array_push($ValueListArray, $title); 

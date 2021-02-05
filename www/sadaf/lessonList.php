@@ -40,18 +40,19 @@ HTMLBegin();
                                 if ($_REQUEST['mine'] == "mine1") {
 
                                     echo '<th width=1%;>&nbsp;</th>';
-                                    echo '<th width=1%; >شماره</th>';
-                                    echo '<th width=1%; >کد</th>';
+                                    echo '<th  >کد</th>';
                                     echo "<th>درس</th>";
+                                    echo "<th>محتوا</th>";
                                     Lesson::getUserLesson();
                                     echo '<td colspan="4" class="text-center">
                                     <input type="submit" value="حذف" class="btn btn-danger btn-sm"
                                 </td>';
                                 } else if($_REQUEST['mine'] == "others") {
                                     
-                                    echo '<th width=1%;>شماره</th>
-                                     <th width=1%;>کد</th>
-                                     <th>درس</th>';
+                                    echo '
+                                    <th width=1%;>کد</th>
+                                     <th>درس</th>
+                                     <th>محتوا </th>';
                                     Lesson::getAllLessons();
                                 }
                             }
