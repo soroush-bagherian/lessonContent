@@ -17,9 +17,7 @@ if ($_GET['subjectid'])
 
 if(isset($_POST['saveforum']))
 {
-    // echo $_SESSION["PersonID"];
-    // echo $subjectid;
-    // echo $_REQUEST['forum_title'];
+
     $isAddForum =Forum::add($subjectid,$_REQUEST['forum_title'],$_SESSION["PersonID"],1);
 
     if($isAddForum){
@@ -51,11 +49,28 @@ $mysql = pdodb::getInstance();
 		while($rec = $res->fetch())
 		{
             echo '<h1>'.$rec["title"].'</h1>'; 
-		}
+        }
+        //Forum::getSubjectForums($_GET['subjectid']);
 
 }
                         ?>
 </header>
+
+<table class="table  table-bordered table-striped table-sm ">
+        <thead>
+            <tr>
+            <th >موضوع گفتگو</th>
+            <th>تاریخ ثبت</th>
+            <th>شروع کننده</th>
+            <?php
+            Forum::getSubjectForums($_GET['subjectid']);
+
+            ?>
+            </tr>
+        </thead>
+
+
+</table>
    
 <form method="post" action="">
     <p>:موضوع گفتگو</p>  

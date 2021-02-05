@@ -45,7 +45,7 @@ if(isset($_REQUEST["save"]))
     $mysql->Prepare($query);
     $res = $mysql->ExecuteStatement($ValueListArray);
 
-/*
+
     $mysql = pdodb::getInstance();
     $query = "insert into sadaf.person_lesson (";
     $query .= " id";
@@ -71,7 +71,7 @@ if(isset($_REQUEST["save"]))
     array_push($ValueListArray, $lessonid);
     $mysql->Prepare($query);
     $res = $mysql->ExecuteStatement($ValueListArray);
-*/
+
 
 
 }
@@ -92,7 +92,7 @@ if(isset($_REQUEST["save"]))
 
         <form method="post">
         <input type="hidden" name="DeleteLesson" value="1">
-            <table class="table  table-bordered table-striped table-sm " ">
+            <table class="table  table-bordered table-striped table-sm " >
                 <thead>
                     <tr>
 

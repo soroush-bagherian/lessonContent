@@ -17,26 +17,17 @@ class Forum{
     public static function add($forum_subject,$forum_title,$forum_by,$forum_status){
         if(!isset($forum_subject) || !isset($forum_by)||!isset($forum_title)){return -1;}
 		$mysql = pdodb::getInstance();
-		$query='insert into sadaf.forums (forum_id,forum_subject,forum_date,forum_by,forum_status,forum_title)
-        values(1,1,NOW(),1,1,"yoo");';
-        $ValueListArray = array();
+        $query='insert into sadaf.forums 
+        (forum_subject,forum_date,forum_by,forum_status,forum_title)
+        values(?,NOW(),?,?,?);';
+
         
-        $id = Forum::GetLastID("forums");
-		if($id==-1){$id=1;}
-		else{$id = $id+1;}
-        array_push($ValueListArray, $forum_subject); 
-        array_push($ValueListArray, $id); 
-		array_push($ValueListArray, $forum_title); 
-        array_push($ValueListArray, $forum_by); 
-        array_push($ValueListArray, $forum_status); 
 		$mysql->Prepare($query);
-		$res = $mysql->ExecuteStatement($ValueListArray);
+        $res = $mysql->ExecuteStatement(array($forum_subject,$forum_by,$forum_status,$forum_title));
 		if($res)
 		{
-            echo "forum added successfully";
 			return true;
         }
-        echo "nope";
 		return -1;
     }
 
@@ -50,12 +41,32 @@ class Forum{
 		}
 		return -1;
 		
-	}
+    }
 
+    public static function getSubjectForums($subjectid){
+		
+		$mysql = pdodb::getInstance();
+		$query = "select forums.forum_title , forums.forum_date , persons.plname,persons.pfname,forums.forum_id from sadaf.forums
+		join sadaf.persons on persons.PersonID = forums.forum_by
+		join sadaf.subject on subject.id = forums.forum_subject
+		where forums.forum_subject = ?; ";
+		$mysql->Prepare($query);
 
-	
+		$res = $mysql->ExecuteStatement(array($subjectid));
 
+        while($rec = $res->fetch())
+    
+		{
 
+            echo "<tr>";
+           
+            echo "<td><a  href='post.php?forumid=".$rec["forum_id"]."'>".htmlentities($rec["forum_title"], ENT_QUOTES,"UTF-8")."</a></td>";
+            echo "<td>".htmlentities($rec["forum_date"], ENT_QUOTES,"UTF-8")."</td>";
+            echo "<td>".htmlentities($rec["pfname"], ENT_QUOTES,"UTF-8")." ".htmlentities($rec["plname"], ENT_QUOTES,"UTF-8")."</td>";
+            echo "</tr>";
+		}
+    }
 }
+
 
 ?>

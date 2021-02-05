@@ -173,6 +173,43 @@ CREATE TABLE IF NOT EXISTS `person_lesson` (
   UNIQUE KEY `lessonid` (`lessonid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
+
+
+CREATE TABLE posts (
+post_id         INT(8) NOT NULL AUTO_INCREMENT,
+post_content        TEXT NOT NULL,
+post_date       DATETIME NOT NULL,
+post_topic      INT(8) NOT NULL,
+post_by     INT(8) NOT NULL,
+PRIMARY KEY (post_id)
+) ;
+
+
+CREATE TABLE forums(
+forum_id        INT(8) NOT NULL AUTO_INCREMENT,
+forum_subject       VARCHAR(255) NOT NULL,
+forum_date      DATETIME NOT NULL,
+forum_lesson       INT(8) NOT NULL,
+forum_by        INT(8) NOT NULL,
+PRIMARY KEY (forum_id)
+);
+ALTER TABLE posts ADD FOREIGN KEY(post_by) 
+REFERENCES persons(PersonID) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE posts ADD FOREIGN KEY(post_topic) 
+REFERENCES forum(forum_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE forums ADD FOREIGN KEY(forum_lesson) 
+REFERENCES lesson(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE forums ADD FOREIGN KEY(forum_subject) 
+REFERENCES subject(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+ALTER TABLE forums ADD FOREIGN KEY(forum_by) 
+REFERENCES persons(PersonID) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+
 --
 -- Dumping data for table `person_lesson`
 --
