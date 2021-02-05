@@ -72,10 +72,6 @@ $mysql = pdodb::getInstance();
                         ?>
 
                     </tr>
-                   
-                    
-                
-                    
                 </thead>
 
 

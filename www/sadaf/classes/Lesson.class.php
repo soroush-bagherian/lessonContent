@@ -108,7 +108,7 @@ class Lesson{
                 $mysql->Execute($query);
 
             }
-            echo $rec["title"];
+            //echo $rec["title"];
 		}
 	}
 
