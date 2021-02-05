@@ -5,13 +5,78 @@ error_reporting(E_ALL);
 
 include("header.inc.php");
 include("classes/Lesson.class.php");
+include("classes/subject.class.php");
+
+HTMLBegin();
 
 if(isset($_REQUEST["DeleteLesson"])){
 
     Lesson::DeleteLessons();
 }
 
-HTMLBegin();
+if(isset($_REQUEST["save"]))
+{
+
+    $code = $_REQUEST["code"];
+    $title = $_REQUEST["title"];
+
+    $mysql = pdodb::getInstance();
+    $query = "insert into sadaf.lesson (";
+    $query .= " id";
+    $query .= ", code";
+    $query .= ", title";
+    $query .= ") values (";
+    $query .= "? , ? ,?";
+    $query .= ")";
+    $ValueListArray = array();
+
+    $id = Subject::GetLastID("lesson");
+    if ($id == -1) {
+        $id = 1;
+    } else {
+        $id = $id + 1;
+    }
+
+    $lessonid = $id;
+
+    array_push($ValueListArray, $id);
+    array_push($ValueListArray, $code);
+    array_push($ValueListArray, $title);
+    $mysql->Prepare($query);
+    $res = $mysql->ExecuteStatement($ValueListArray);
+
+/*
+    $mysql = pdodb::getInstance();
+    $query = "insert into sadaf.person_lesson (";
+    $query .= " id";
+    $query .= ", personid";
+    $query .= ", lessonid";
+    $query .= ") values (";
+    $query .= "? , ? ,?";
+    $query .= ")";
+    $ValueListArray = array();
+
+
+    $id = Subject::GetLastID("person_lesson");
+    if ($id == -1) {
+        $id = 1;
+    } else {
+        $id = $id + 1;
+    }
+
+    $personid = (int)$_SESSION["PersonID"];
+
+    array_push($ValueListArray, $id);
+    array_push($ValueListArray, $personid);
+    array_push($ValueListArray, $lessonid);
+    $mysql->Prepare($query);
+    $res = $mysql->ExecuteStatement($ValueListArray);
+*/
+
+
+}
+
+
 ?>
 
 <body>
@@ -39,6 +104,26 @@ HTMLBegin();
 
                                 if ($_REQUEST['mine'] == "mine1") {
 
+                                    echo "<tr>";
+                                    echo "<td>کد:</td>";
+
+                                    echo '<td colspan="4">
+                                    <input type="text" name="code" id="code">
+                                    </td>';
+
+                                    echo "<tr>";
+                                    echo "<td>درس:</td>";
+
+                                    echo '<td colspan="4">
+                                    <input type="text" name="title" id="title">
+                                    </td>';
+                                    echo "<tr>";
+
+                                    echo '<td colspan="4" class="text-center">
+                                    <input type="submit" value="ثبت درس" name="save" id="save" class="btn btn-sm btn-primary"
+                                    </td>';
+                                    echo "<tr>";
+
                                     echo '<th width=1%;>&nbsp;</th>';
                                     echo '<th width=1%; >شماره</th>';
                                     echo '<th width=1%; >کد</th>';
@@ -47,6 +132,7 @@ HTMLBegin();
                                     echo '<td colspan="4" class="text-center">
                                     <input type="submit" value="حذف" class="btn btn-danger btn-sm"
                                 </td>';
+
                                 } else if($_REQUEST['mine'] == "others") {
                                     
                                     echo '<th width=1%;>شماره</th>
