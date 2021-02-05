@@ -19,14 +19,13 @@ class Subject{
 		$query .= ", title";
 		$query .= ") values (";
 		$query .= "? , ? ";
-		$query .= ");";
+		$query .= ")";
 		$ValueListArray = array();
 
 
 		$id = Subject::GetLastID("subject");
 		if($id==-1){$id=1;}
 		else{$id = $id+1;}
-
 
 		array_push($ValueListArray, $id); 
 		array_push($ValueListArray, $title); 
@@ -110,28 +109,6 @@ class Subject{
 			$lesson .="<option name='lesson'  value='".$rec['subjectId']."'>". $rec['title'] ."</option>";
 		}
 		return $lesson;
-	}
-public static function edit_subject($sId , $newTitle){
-
-		$ValueListArray = array();
-		
-		$mysql = pdodb::getInstance();
-		$query = "UPDATE subject
-		SET title = ?
-		WHERE id = ?;";
-
-		array_push($ValueListArray, $newTitle); 
-		array_push($ValueListArray, $sId);
-
-		$mysql->Prepare($query);
-		$res = $mysql->ExecuteStatement($ValueListArray);
-
-		if($rec = $res->fetch())
-		{
-			return true;
-		}
-		return -1;
-
 	}
 
 
