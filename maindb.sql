@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sadaf
 -- ------------------------------------------------------
@@ -28,7 +28,7 @@ CREATE TABLE `accountspecs` (
   `UserPassword` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `PersonID` int(11) DEFAULT NULL,
   PRIMARY KEY (`AccountSpecID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `accountspecs` (
 
 LOCK TABLES `accountspecs` WRITE;
 /*!40000 ALTER TABLE `accountspecs` DISABLE KEYS */;
-INSERT INTO `accountspecs` VALUES (1,'omid','omid3000',1),(2,'nazanin','nazi123',2),(3,'ali','ali123',3);
+INSERT INTO `accountspecs` VALUES (1,'omid','omid3000',1);
 /*!40000 ALTER TABLE `accountspecs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +54,7 @@ CREATE TABLE `attachment` (
   `description` text COLLATE utf8_persian_ci NOT NULL,
   `attachment` text COLLATE utf8_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,34 @@ CREATE TABLE `attachment` (
 
 LOCK TABLES `attachment` WRITE;
 /*!40000 ALTER TABLE `attachment` DISABLE KEYS */;
+INSERT INTO `attachment` VALUES (1,'تست','نمرات از 100','google.com'),(2,'تست','نمرات از 100','google.com'),(3,'','',''),(4,'','',''),(5,'asdasd','asdasdas','asdasd');
 /*!40000 ALTER TABLE `attachment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `communicationhall`
+--
+
+DROP TABLE IF EXISTS `communicationhall`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `communicationhall` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `description` varchar(120) COLLATE utf8_persian_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `communicationhall`
+--
+
+LOCK TABLES `communicationhall` WRITE;
+/*!40000 ALTER TABLE `communicationhall` DISABLE KEYS */;
+INSERT INTO `communicationhall` VALUES (1,'تست','نمرات از 100',1),(2,'تست','نمرات از 100',1),(3,'تست','نمرات از 100',0),(4,'تالار گسسته','گسسته',1);
+/*!40000 ALTER TABLE `communicationhall` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -102,7 +129,7 @@ CREATE TABLE `facilitypages` (
   `FacilityID` int(11) DEFAULT NULL,
   `PageName` varchar(145) COLLATE utf8_persian_ci DEFAULT NULL,
   PRIMARY KEY (`FacilityPageID`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +138,7 @@ CREATE TABLE `facilitypages` (
 
 LOCK TABLES `facilitypages` WRITE;
 /*!40000 ALTER TABLE `facilitypages` DISABLE KEYS */;
-INSERT INTO `facilitypages` VALUES (3,3,'/ManageSystemFacilities.php'),(4,3,'/ManageFacilityPages.php'),(5,3,'/ManageSystemFacilities.php'),(6,3,'/ManageUserFacilities.php'),(7,4,'/ManageSystemFacilityGroups.php'),(8,1,'/Managepersons.php'),(9,5,'/ManageAccountSpecs.php'),(25,5,'/ManageUserPermissions.php'),(48,12,'/GetJasonData.php'),(49,6,'/test.php'),(50,7,'/lessonList.php'),(51,8,'/subject.php'),(52,9,'/forum.php'),(53,10,'/LessonContent.php'),(54,11,'/post.php');
+INSERT INTO `facilitypages` VALUES (3,3,'/ManageSystemFacilities.php'),(4,3,'/ManageFacilityPages.php'),(5,3,'/ManageSystemFacilities.php'),(6,3,'/ManageUserFacilities.php'),(7,4,'/ManageSystemFacilityGroups.php'),(8,1,'/Managepersons.php'),(9,5,'/ManageAccountSpecs.php'),(25,5,'/ManageUserPermissions.php'),(48,12,'/GetJasonData.php'),(49,6,'/subject.php'),(50,7,'/source.php'),(51,8,'/lessonList.php');
 /*!40000 ALTER TABLE `facilitypages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +155,7 @@ CREATE TABLE `file` (
   `description` text COLLATE utf8_persian_ci NOT NULL,
   `src` varchar(255) COLLATE utf8_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,6 +164,7 @@ CREATE TABLE `file` (
 
 LOCK TABLES `file` WRITE;
 /*!40000 ALTER TABLE `file` DISABLE KEYS */;
+INSERT INTO `file` VALUES (1,'D:\\wamp64\\tmp\\phpB30C.tmp','توضیح فایل تست',''),(2,'D:\\wamp64\\tmp\\php2457.tmp','نمرات از 100','../uploads/test.txt'),(3,'D:\\wamp64\\tmp\\phpDBFB.tmp','نمرات از 100','../uploads/رزومه.pdf'),(4,'Screenshot (19).png','sadsad','../uploads/Screenshot (19).png');
 /*!40000 ALTER TABLE `file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +204,7 @@ CREATE TABLE `folder` (
   `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
   `description` text COLLATE utf8_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,38 +213,8 @@ CREATE TABLE `folder` (
 
 LOCK TABLES `folder` WRITE;
 /*!40000 ALTER TABLE `folder` DISABLE KEYS */;
+INSERT INTO `folder` VALUES (1,'پوشه نمرات','نمره دانشجویان'),(2,'تست','sadasdsa'),(3,'تست','نمرات از 100');
 /*!40000 ALTER TABLE `folder` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `forums`
---
-
-DROP TABLE IF EXISTS `forums`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `forums` (
-  `forum_id` int(8) NOT NULL AUTO_INCREMENT,
-  `forum_subject` int(8) NOT NULL,
-  `forum_date` datetime NOT NULL,
-  `forum_by` int(8) NOT NULL,
-  `forum_status` varchar(3) COLLATE utf8_persian_ci NOT NULL,
-  `forum_title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
-  `forum_description` varchar(45) COLLATE utf8_persian_ci DEFAULT NULL,
-  PRIMARY KEY (`forum_id`),
-  KEY `forum_by` (`forum_by`),
-  KEY `forum_subject` (`forum_subject`)
-) ENGINE=MyISAM AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `forums`
---
-
-LOCK TABLES `forums` WRITE;
-/*!40000 ALTER TABLE `forums` DISABLE KEYS */;
-INSERT INTO `forums` VALUES (59,7,'2021-02-06 01:22:38',1,'on','hii',''),(60,7,'2021-02-06 01:22:45',1,'off','کمک درسی',''),(61,7,'2021-02-06 01:37:20',1,'on','','well hello there'),(62,7,'2021-02-06 01:37:36',1,'on','hello','well hello there'),(63,8,'2021-02-06 01:54:39',1,'on','کمک درسی','کمک'),(64,6,'2021-02-06 01:56:23',1,'on','کمک درسی','hi');
-/*!40000 ALTER TABLE `forums` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -232,8 +230,8 @@ CREATE TABLE `lesson` (
   `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`),
-  KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  UNIQUE KEY `title` (`title`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +240,7 @@ CREATE TABLE `lesson` (
 
 LOCK TABLES `lesson` WRITE;
 /*!40000 ALTER TABLE `lesson` DISABLE KEYS */;
-INSERT INTO `lesson` VALUES (1,105,'مبانی برنامه نویسی'),(3,140,'امنیت شبکه'),(4,150,'ریزپردازنده'),(5,160,'سیگنال'),(6,120,'معماری کامپیوتر'),(7,130,'برنامه نویسی وب'),(8,10,'hey'),(9,115,'jk');
+INSERT INTO `lesson` VALUES (1,105,'مبانی برنامه نویسی'),(2,106,'گسسته');
 /*!40000 ALTER TABLE `lesson` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +257,7 @@ CREATE TABLE `page` (
   `description` text COLLATE utf8_persian_ci NOT NULL,
   `content` text COLLATE utf8_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,6 +266,7 @@ CREATE TABLE `page` (
 
 LOCK TABLES `page` WRITE;
 /*!40000 ALTER TABLE `page` DISABLE KEYS */;
+INSERT INTO `page` VALUES (1,'امتحان پایانترم','مدت امتحان 30 دقیقه میباشد','<p>محتوای خود را وارد کنید.</p>'),(2,'سشیشس','یشسیشسیسش','<p>محتوای خود را وارد کنید.</p>'),(3,'ضضضضض','ضضضضضضض','<p>محتوای خود را وارد کنید.</p>');
 /*!40000 ALTER TABLE `page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,10 +281,8 @@ CREATE TABLE `person_lesson` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `personid` int(11) NOT NULL,
   `lessonid` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `personid` (`personid`),
-  KEY `lessonid` (`lessonid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,7 +291,7 @@ CREATE TABLE `person_lesson` (
 
 LOCK TABLES `person_lesson` WRITE;
 /*!40000 ALTER TABLE `person_lesson` DISABLE KEYS */;
-INSERT INTO `person_lesson` VALUES (1,1,1),(2,1,9);
+INSERT INTO `person_lesson` VALUES (1,1,1),(2,1,2);
 /*!40000 ALTER TABLE `person_lesson` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,7 +308,7 @@ CREATE TABLE `persons` (
   `plname` varchar(45) COLLATE utf8_persian_ci DEFAULT NULL,
   `CardNumber` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`PersonID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -320,37 +317,8 @@ CREATE TABLE `persons` (
 
 LOCK TABLES `persons` WRITE;
 /*!40000 ALTER TABLE `persons` DISABLE KEYS */;
-INSERT INTO `persons` VALUES (1,'اميد','ميلاني فرد','0'),(2,'نازنین','مهرگان','0'),(3,'علی','علیزاده','0');
+INSERT INTO `persons` VALUES (1,'اميد','ميلاني فرد','0');
 /*!40000 ALTER TABLE `persons` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `posts`
---
-
-DROP TABLE IF EXISTS `posts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `posts` (
-  `post_id` int(8) NOT NULL AUTO_INCREMENT,
-  `post_content` text COLLATE utf8_persian_ci NOT NULL,
-  `post_date` datetime NOT NULL,
-  `post_topic` int(8) NOT NULL,
-  `post_by` int(8) NOT NULL,
-  `post_forum` int(8) NOT NULL,
-  PRIMARY KEY (`post_id`),
-  KEY `post_by` (`post_by`),
-  KEY `post_topic` (`post_topic`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `posts`
---
-
-LOCK TABLES `posts` WRITE;
-/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -388,7 +356,7 @@ CREATE TABLE `subject` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -397,34 +365,35 @@ CREATE TABLE `subject` (
 
 LOCK TABLES `subject` WRITE;
 /*!40000 ALTER TABLE `subject` DISABLE KEYS */;
-INSERT INTO `subject` VALUES (1,''),(2,'هی'),(3,'s1'),(4,'ji'),(5,'uuu'),(6,'hiiiii'),(7,'mabani'),(8,'تمارین'),(9,'ui'),(10,'موضوع 1'),(11,'اه');
+INSERT INTO `subject` VALUES (1,'نمرات1'),(2,'تست12'),(3,'تست'),(4,'ویرایش شده'),(5,''),(6,'تست2'),(7,'تست41'),(8,'سسسس');
 /*!40000 ALTER TABLE `subject` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `subject_attachmebt`
+-- Table structure for table `subject_attachment`
 --
 
-DROP TABLE IF EXISTS `subject_attachmebt`;
+DROP TABLE IF EXISTS `subject_attachment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `subject_attachmebt` (
+CREATE TABLE `subject_attachment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `subjectId` int(11) NOT NULL,
   `attachmentId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `subjectId` (`subjectId`),
   KEY `attachmentId` (`attachmentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `subject_attachmebt`
+-- Dumping data for table `subject_attachment`
 --
 
-LOCK TABLES `subject_attachmebt` WRITE;
-/*!40000 ALTER TABLE `subject_attachmebt` DISABLE KEYS */;
-/*!40000 ALTER TABLE `subject_attachmebt` ENABLE KEYS */;
+LOCK TABLES `subject_attachment` WRITE;
+/*!40000 ALTER TABLE `subject_attachment` DISABLE KEYS */;
+INSERT INTO `subject_attachment` VALUES (1,3,2),(2,4,2),(3,5,2);
+/*!40000 ALTER TABLE `subject_attachment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -441,7 +410,7 @@ CREATE TABLE `subject_file` (
   PRIMARY KEY (`id`),
   KEY `subjectId` (`subjectId`),
   KEY `fileId` (`fileId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -450,6 +419,7 @@ CREATE TABLE `subject_file` (
 
 LOCK TABLES `subject_file` WRITE;
 /*!40000 ALTER TABLE `subject_file` DISABLE KEYS */;
+INSERT INTO `subject_file` VALUES (1,2,1),(2,2,2),(3,2,3),(4,2,4);
 /*!40000 ALTER TABLE `subject_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -467,7 +437,7 @@ CREATE TABLE `subject_folder` (
   PRIMARY KEY (`id`),
   KEY `subjectId` (`subjectId`),
   KEY `folderId` (`folderId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -476,7 +446,33 @@ CREATE TABLE `subject_folder` (
 
 LOCK TABLES `subject_folder` WRITE;
 /*!40000 ALTER TABLE `subject_folder` DISABLE KEYS */;
+INSERT INTO `subject_folder` VALUES (1,3,2);
 /*!40000 ALTER TABLE `subject_folder` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subject_hall`
+--
+
+DROP TABLE IF EXISTS `subject_hall`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `subject_hall` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subjectId` int(11) DEFAULT NULL,
+  `hallId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subject_hall`
+--
+
+LOCK TABLES `subject_hall` WRITE;
+/*!40000 ALTER TABLE `subject_hall` DISABLE KEYS */;
+INSERT INTO `subject_hall` VALUES (1,2,0),(2,3,2),(3,4,1);
+/*!40000 ALTER TABLE `subject_hall` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -493,7 +489,7 @@ CREATE TABLE `subject_lesson` (
   PRIMARY KEY (`id`),
   KEY `subjectId` (`subjectId`),
   KEY `lessonId` (`lessonId`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -502,7 +498,7 @@ CREATE TABLE `subject_lesson` (
 
 LOCK TABLES `subject_lesson` WRITE;
 /*!40000 ALTER TABLE `subject_lesson` DISABLE KEYS */;
-INSERT INTO `subject_lesson` VALUES (2,1,3),(3,2,4),(4,1,5),(5,1,5),(6,1,5),(7,1,5),(8,1,5),(9,1,5),(10,1,5),(11,1,5),(12,1,5),(13,1,5),(14,1,5),(15,6,1),(16,7,1),(17,8,1),(18,9,1),(19,10,1),(20,11,9);
+INSERT INTO `subject_lesson` VALUES (2,2,1),(3,1,2),(4,2,3),(5,2,4),(6,1,5),(7,1,6),(8,7,1),(9,8,2);
 /*!40000 ALTER TABLE `subject_lesson` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -520,7 +516,7 @@ CREATE TABLE `subject_page` (
   PRIMARY KEY (`id`),
   KEY `subjectId` (`subjectId`),
   KEY `pageId` (`pageId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -529,6 +525,7 @@ CREATE TABLE `subject_page` (
 
 LOCK TABLES `subject_page` WRITE;
 /*!40000 ALTER TABLE `subject_page` DISABLE KEYS */;
+INSERT INTO `subject_page` VALUES (1,3,2),(2,1,2);
 /*!40000 ALTER TABLE `subject_page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -546,7 +543,7 @@ CREATE TABLE `subject_tag` (
   PRIMARY KEY (`id`),
   KEY `subjectId` (`subjectId`),
   KEY `tagId` (`tagId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -555,6 +552,7 @@ CREATE TABLE `subject_tag` (
 
 LOCK TABLES `subject_tag` WRITE;
 /*!40000 ALTER TABLE `subject_tag` DISABLE KEYS */;
+INSERT INTO `subject_tag` VALUES (2,2,15),(3,1,16);
 /*!40000 ALTER TABLE `subject_tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -576,7 +574,7 @@ CREATE TABLE `sysaudit` (
   `ATS` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`RecID`),
   KEY `UserID` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -585,7 +583,7 @@ CREATE TABLE `sysaudit` (
 
 LOCK TABLES `sysaudit` WRITE;
 /*!40000 ALTER TABLE `sysaudit` DISABLE KEYS */;
-INSERT INTO `sysaudit` VALUES (1,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: ',0,0,NULL,'2021-02-03 07:31:23'),(2,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: ',0,0,NULL,'2021-02-03 07:34:21'),(3,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: گروه',0,0,NULL,'2021-02-03 07:35:03'),(4,'omid',NULL,'ثبت داده جدید در  با کد 5',2130706433,0,NULL,'2021-02-03 07:45:31'),(5,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: گروه',2130706433,0,NULL,'2021-02-03 07:45:45'),(6,'omid',NULL,'ثبت داده جدید در  با کد 6',2130706433,0,NULL,'2021-02-03 07:46:35'),(7,'omid',NULL,'حذف داده با شماره شناسایی 6 از ',2130706433,0,NULL,'2021-02-03 07:46:37'),(8,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-03 07:54:40'),(9,'omid',NULL,'ثبت داده جدید در  با کد 50',0,0,NULL,'2021-02-03 07:54:58'),(10,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-03 07:55:13'),(11,'omid',NULL,'ثبت داده جدید در  با کد 8',0,0,NULL,'2021-02-03 10:45:58'),(12,'omid',NULL,'ثبت داده جدید در  با کد 8',0,0,NULL,'2021-02-03 10:46:04'),(13,'omid',NULL,'ثبت داده جدید در  با کد 51',0,0,NULL,'2021-02-03 10:46:18'),(14,'omid',NULL,'بروز رسانی داده با شماره شناسایی 50 در  - موارد تغییر داده شده: صفحه',0,0,NULL,'2021-02-03 11:06:29'),(15,'omid',NULL,'بروز رسانی داده با شماره شناسایی 7 در  - موارد تغییر داده شده: آدرس صفحه',0,0,NULL,'2021-02-03 11:08:00'),(16,'omid',NULL,'بروز رسانی داده با شماره شناسایی 7 در  - موارد تغییر داده شده: آدرس صفحه',0,0,NULL,'2021-02-03 14:09:27'),(17,'omid',NULL,'بروز رسانی داده با شماره شناسایی 50 در  - موارد تغییر داده شده: صفحه',0,0,NULL,'2021-02-03 14:09:43'),(18,'omid',NULL,'بروز رسانی داده با شماره شناسایی 1 در  - موارد تغییر داده شده: نام ',0,0,NULL,'2021-02-03 19:51:34'),(19,'omid',NULL,'بروز رسانی داده با شماره شناسایی 1 در  - موارد تغییر داده شده: نام ',0,0,NULL,'2021-02-03 19:51:57'),(20,'omid',NULL,'ثبت داده جدید در  با کد 9',0,0,NULL,'2021-02-05 07:40:08'),(21,'omid',NULL,'ثبت داده جدید در  با کد 9',0,0,NULL,'2021-02-05 07:40:17'),(22,'omid',NULL,'ثبت داده جدید در  با کد 52',0,0,NULL,'2021-02-05 07:40:32'),(23,'omid',NULL,'ثبت داده جدید در  با کد 10',0,0,NULL,'2021-02-05 10:03:44'),(24,'omid',NULL,'ثبت داده جدید در  با کد 10',0,0,NULL,'2021-02-05 10:03:59'),(25,'omid',NULL,'ثبت داده جدید در  با کد 53',0,0,NULL,'2021-02-05 10:04:19'),(26,'omid',NULL,'ثبت داده جدید در  با کد 11',0,0,NULL,'2021-02-05 20:22:00'),(27,'omid',NULL,'ثبت داده جدید در  با کد 54',0,0,NULL,'2021-02-05 20:22:10'),(28,'omid',NULL,'ثبت داده جدید در  با کد 11',0,0,NULL,'2021-02-05 20:22:25');
+INSERT INTO `sysaudit` VALUES (1,'omid',NULL,'ثبت داده جدید در  با کد 5',0,0,NULL,'2021-02-02 20:02:58'),(2,'omid',NULL,'ثبت داده جدید در  با کد 49',0,0,NULL,'2021-02-02 20:03:11'),(3,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-02 20:04:31'),(4,'omid',NULL,'ثبت داده جدید در  با کد 6',0,0,NULL,'2021-02-02 20:04:37'),(5,'omid',NULL,'ثبت داده جدید در  با کد 50',0,0,NULL,'2021-02-02 20:04:47'),(6,'omid',NULL,'ثبت داده جدید در  با کد 8',0,0,NULL,'2021-02-03 22:40:01'),(7,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-03 22:40:08'),(8,'omid',NULL,'ثبت داده جدید در  با کد 51',0,0,NULL,'2021-02-03 22:40:21');
 /*!40000 ALTER TABLE `sysaudit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -610,7 +608,7 @@ CREATE TABLE `systemdblog` (
   `DBName` varchar(30) COLLATE utf8_persian_ci DEFAULT '' COMMENT 'نام پایگاه داده',
   PRIMARY KEY (`RecID`),
   KEY `UserID` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -619,7 +617,7 @@ CREATE TABLE `systemdblog` (
 
 LOCK TABLES `systemdblog` WRITE;
 /*!40000 ALTER TABLE `systemdblog` DISABLE KEYS */;
-INSERT INTO `systemdblog` VALUES (1,'localhost/sadaf/www/sadaf/ManageSystemFacilities.php','insert into sadaf.SystemFacilities ( FacilityName, GroupID, OrderNo, PageAddress) values (? , ? , ? , ? )HY000,1366,Incorrect integer value: \'\' for column \'OrderNo\' at row 1','a:4:{i:0;s:6:\"تست\";i:1;s:1:\"2\";i:2;s:0:\"\";i:3;s:0:\"\";}','omid',0,0,'2021-02-03 07:27:57',0.0008530617,'FAILED','sadaf'),(2,'localhost/LessonContent/www/sadaf/ManageSystemFacilities.php','insert into sadaf.SystemFacilities ( FacilityName, GroupID, OrderNo, PageAddress) values (? , ? , ? , ? )HY000,1366,Incorrect integer value: \'\' for column \'OrderNo\' at row 1','a:4:{i:0;s:0:\"\";i:1;s:1:\"0\";i:2;s:0:\"\";i:3;s:0:\"\";}','omid',0,0,'2021-02-03 10:45:33',0.0002238750,'FAILED','sadaf'),(3,'localhost/LessonContent/www/sadaf/forum.php','insert into sadaf.categories ( cat_name, cat_description) values (? , ? )23000,1062,Duplicate entry \'first\' for key \'cat_name_unique\'','a:2:{i:0;s:5:\"first\";i:1;s:2:\"hi\";}','omid',0,0,'2021-02-05 07:42:57',0.1083080769,'FAILED','sadaf'),(4,'localhost/LessonContent/www/sadaf/forum.php','insert into sadaf.categories ( cat_name, cat_description) values (? , ? )23000,1062,Duplicate entry \'first\' for key \'cat_name_unique\'','a:2:{i:0;s:5:\"first\";i:1;s:2:\"hi\";}','omid',0,0,'2021-02-05 07:43:37',0.0004279613,'FAILED','sadaf'),(5,'localhost/LessonContent/www/sadaf/subject.php','insert into sadaf.subject_lesson ( id, subjectId, lessonId) values (? , ? )HY093,,','a:3:{i:0;s:1:\"6\";i:1;s:1:\"3\";i:2;s:1:\"1\";}','omid',0,0,'2021-02-05 11:19:20',0.1474251747,'FAILED','sadaf'),(6,'localhost/LessonContent/www/sadaf/forum.php','select subject.title from sadaf.lesson\r\n		where subject.id = ?; 42S22,1054,Unknown column \'subject.title\' in \'field list\'','a:1:{i:0;s:1:\"7\";}','omid',0,0,'2021-02-05 15:25:02',0.0002410412,'FAILED','sadaf'),(7,'localhost/LessonContent/www/sadaf/lessonList.php','insert into sadaf.lesson ( id, code, title) values (? , ? ,?)HY000,1366,Incorrect integer value: \'درس جدید\' for column \'code\' at row 1','a:3:{i:0;s:1:\"8\";i:1;s:15:\"درس جدید\";i:2;s:3:\"160\";}','omid',0,0,'2021-02-05 17:03:10',0.0001571178,'FAILED','sadaf'),(8,'localhost/LessonContent/www/sadaf/lessonList.php','insert into sadaf.lesson ( id, code, title) values (? , ? ,?)HY000,1366,Incorrect integer value: \'درس جدید\' for column \'code\' at row 1','a:3:{i:0;s:1:\"8\";i:1;s:15:\"درس جدید\";i:2;s:3:\"160\";}','omid',0,0,'2021-02-05 17:06:01',0.0001599789,'FAILED','sadaf'),(9,'localhost/LessonContent/www/sadaf/lessonList.php','insert into sadaf.lesson ( id, code, title) values (? , ? ,?)HY000,1366,Incorrect integer value: \'درس جدید\' for column \'code\' at row 1','a:3:{i:0;s:1:\"8\";i:1;s:15:\"درس جدید\";i:2;s:3:\"160\";}','omid',0,0,'2021-02-05 17:06:15',0.0001349449,'FAILED','sadaf'),(10,'localhost/LessonContent/www/sadaf/lessonList.php','insert into sadaf.lesson ( id, code, title) values (? , ? ,?)HY000,1366,Incorrect integer value: \'hey\' for column \'code\' at row 1','a:3:{i:0;s:1:\"8\";i:1;s:3:\"hey\";i:2;s:3:\"102\";}','omid',0,0,'2021-02-05 17:06:38',0.0001161098,'FAILED','sadaf'),(11,'localhost/LessonContent/www/sadaf/lessonList.php','insert into sadaf.lesson ( id, code, title) values (? , ? ,?)HY000,1366,Incorrect integer value: \'hey\' for column \'code\' at row 1','a:3:{i:0;s:1:\"8\";i:1;s:3:\"hey\";i:2;s:1:\"9\";}','omid',0,0,'2021-02-05 17:06:52',0.0027270317,'FAILED','sadaf'),(12,'localhost/LessonContent/www/sadaf/forum.php','insert into sadaf.forums \r\n        (forum_subject,forum_date,forum_by,forum_status,forum_title)\r\n        values(?,NOW(),?,?,?);HY093,,','a:5:{i:0;s:0:\"\";i:1;s:1:\"7\";i:2;s:1:\"1\";i:3;s:1:\"1\";i:4;s:3:\"jjo\";}','omid',0,0,'2021-02-05 18:01:26',0.0849578381,'FAILED','sadaf'),(13,'localhost/LessonContent/www/sadaf/forum.php','select forums.forum_title , forums.forum_date , persons.plname from sadaf.forums\r\n		join sadaf.persons on persons.id = forums.forum_by\r\n		join sadaf.subject on subject.id = forums.forum_subject\r\n		where forums.forum_subject = ?; 42S22,1054,Unknown column \'persons.id\' in \'on clause\'','a:1:{i:0;s:0:\"\";}','omid',0,0,'2021-02-05 19:49:06',0.0005481243,'FAILED','sadaf'),(14,'localhost/LessonContent/www/sadaf/forum.php','select forums.forum_title , forums.forum_date , persons.plname from sadaf.forums\r\n		join sadaf.persons on persons.id = forums.forum_by\r\n		join sadaf.subject on subject.id = forums.forum_subject\r\n		where forums.forum_subject = ?; 42S22,1054,Unknown column \'persons.id\' in \'on clause\'','a:1:{i:0;s:1:\"8\";}','omid',0,0,'2021-02-05 19:49:53',0.0003728867,'FAILED','sadaf'),(15,'localhost/LessonContent/www/sadaf/forum.php','select forums.forum_title , forums.forum_date , persons.plname from sadaf.forums\r\n		join sadaf.persons on persons.id = forums.forum_by\r\n		join sadaf.subject on subject.id = forums.forum_subject\r\n		where forums.forum_subject = ?; 42S22,1054,Unknown column \'persons.id\' in \'on clause\'','a:1:{i:0;s:1:\"7\";}','omid',0,0,'2021-02-05 19:50:38',0.0002038479,'FAILED','sadaf'),(16,'localhost/LessonContent/www/sadaf/forum.php','select forums.forum_title , forums.forum_date , persons.plname,persons.pfname,forum.forum_id from sadaf.forums\r\n		join sadaf.persons on persons.PersonID = forums.forum_by\r\n		join sadaf.subject on subject.id = forums.forum_subject\r\n		where forums.forum_subject = ?; 42S22,1054,Unknown column \'forum.forum_id\' in \'field list\'','a:1:{i:0;s:1:\"7\";}','omid',0,0,'2021-02-05 20:08:51',0.0101320744,'FAILED','sadaf'),(17,'localhost/LessonContent/www/sadaf/post.php','select posts.posts_topic,posts.post_description , posts.post_date , persons.plname,persons.pfname,posts.post_id from sadaf.posts\r\n		join sadaf.persons on persons.PersonID = posts.post_by\r\n		join sadaf.forums on forums.forum_id = posts.post_forum\r\n		where posts.post_forum = ?; 42S22,1054,Unknown column \'posts.posts_topic\' in \'field list\'','a:1:{i:0;s:2:\"60\";}','omid',0,0,'2021-02-05 22:25:26',0.0004169941,'FAILED','sadaf'),(18,'localhost/LessonContent/www/sadaf/post.php','select posts.post_topic,posts.post_description , posts.post_date , persons.plname,persons.pfname,posts.post_id from sadaf.posts\r\n		join sadaf.persons on persons.PersonID = posts.post_by\r\n		join sadaf.forums on forums.forum_id = posts.post_forum\r\n		where posts.post_forum = ?; 42S22,1054,Unknown column \'posts.post_description\' in \'field list\'','a:1:{i:0;s:2:\"60\";}','omid',0,0,'2021-02-05 22:25:59',0.0002050400,'FAILED','sadaf'),(19,'localhost/LessonContent/www/sadaf/post.php','select posts.post_topic,posts.post_content , posts.post_date , persons.plname,persons.pfname,posts.post_id from sadaf.posts\r\n		join sadaf.persons on persons.PersonID = posts.post_by\r\n		join sadaf.forums on forums.forum_id = posts.post_forum\r\n		where posts.post_forum = ?; 42S22,1054,Unknown column \'posts.post_forum\' in \'where clause\'','a:1:{i:0;s:2:\"64\";}','omid',0,0,'2021-02-05 22:26:25',0.0004301071,'FAILED','sadaf');
+INSERT INTO `systemdblog` VALUES (1,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.subject_tag (subjectId , tagId) values(?,?);HY000,1366,Incorrect integer value: \'\' for column \'subjectId\' at row 1','a:2:{i:0;s:0:\"\";i:1;s:2:\"13\";}','omid',0,0,'2021-02-03 20:35:43',0.0008111000,'FAILED','sadaf'),(2,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.subject_page (subjectId , folderId) values(?,?);42S22,1054,Unknown column \'folderId\' in \'field list\'','a:2:{i:0;s:1:\"2\";i:1;s:1:\"2\";}','omid',0,0,'2021-02-03 21:54:37',0.0494930744,'FAILED','sadaf'),(3,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.subject_attachment (subjectId , folderId) values(?,?);42S02,1146,Table \'sadaf.subject_attachment\' doesn\'t exist','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}','omid',0,0,'2021-02-03 22:20:27',0.0003700256,'FAILED','sadaf'),(4,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.subject_attachment (subjectId , folderId) values(?,?);42S22,1054,Unknown column \'folderId\' in \'field list\'','a:2:{i:0;s:1:\"2\";i:1;s:1:\"2\";}','omid',0,0,'2021-02-03 22:21:18',0.0500290394,'FAILED','sadaf'),(5,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.communicationhall (id , title ,description ,status) values(?,?,?,?);HY000,3105,The value specified for generated column \'status\' in table \'communicationhall\' is not allowed.','a:4:{i:0;s:1:\"1\";i:1;s:5:\"aaaaa\";i:2;s:5:\"aaaaa\";i:3;s:0:\"\";}','omid',0,0,'2021-02-04 12:16:39',0.0001900196,'FAILED','sadaf'),(6,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.communicationhall (id , title ,description ,status) values(?,?,?,?);HY000,3105,The value specified for generated column \'status\' in table \'communicationhall\' is not allowed.','a:4:{i:0;s:1:\"1\";i:1;s:25:\"مباحث میانترم\";i:2;s:25:\"تالار میانترم\";i:3;s:1:\"1\";}','omid',0,0,'2021-02-04 12:17:44',0.0001749992,'FAILED','sadaf'),(7,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.communicationhall (id , title ,description ,status) values(?,?,?,?);HY000,3105,The value specified for generated column \'status\' in table \'communicationhall\' is not allowed.','a:4:{i:0;s:1:\"1\";i:1;s:17:\"تالار تست\";i:2;s:17:\"توضیح تست\";i:3;s:1:\"1\";}','omid',0,0,'2021-02-04 12:18:55',0.0001659393,'FAILED','sadaf'),(8,'localhost/LessonContent_fork/www/sadaf/source.php','insert into sadaf.subject_hall (subjectId , halltId) values(?,?);42S22,1054,Unknown column \'halltId\' in \'field list\'','a:2:{i:0;s:1:\"1\";i:1;s:1:\"0\";}','omid',0,0,'2021-02-04 12:21:48',0.0003869534,'FAILED','sadaf'),(9,'localhost/LessonContent_fork/www/sadaf/subject.php','select * , lesson.title as lessonTitle from lesson \r\n		join  subject_lesson on lesson.id = subject_lesson.lessonId\r\n		join  subject on subject.id = subject_lesson.subjectId\r\n		join person_lesson on lesson.id = person_lesson.lessonId \r\n		where persons.PersonID=?42S22,1054,Unknown column \'persons.PersonID\' in \'where clause\'','a:1:{i:0;s:1:\"1\";}','omid',0,0,'2021-02-04 20:32:09',0.0001809597,'FAILED','sadaf'),(10,'localhost/LessonContent_fork/www/sadaf/subject.php','select * , lesson.title as lessonTitle from lesson \r\n		join  subject_lesson on lesson.id = subject_lesson.lessonId\r\n		join  subject on subject.id = subject_lesson.subjectId\r\n		join person_lesson on lesson.id = person_lesson.lessonId \r\n		where where personid =?42000,1064,You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'where personid =\'1\'\' at line 5','a:1:{i:0;s:1:\"1\";}','omid',0,0,'2021-02-04 20:32:38',0.0001800060,'FAILED','sadaf');
 /*!40000 ALTER TABLE `systemdblog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -637,7 +635,7 @@ CREATE TABLE `systemfacilities` (
   `OrderNo` int(11) DEFAULT NULL,
   `PageAddress` varchar(345) COLLATE utf8_persian_ci DEFAULT NULL,
   PRIMARY KEY (`FacilityID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -646,7 +644,7 @@ CREATE TABLE `systemfacilities` (
 
 LOCK TABLES `systemfacilities` WRITE;
 /*!40000 ALTER TABLE `systemfacilities` DISABLE KEYS */;
-INSERT INTO `systemfacilities` VALUES (1,'مدیریت افراد',1,3,'Managepersons.php'),(3,'مدیریت امکانات',1,2,'ManageSystemFacilities.php'),(4,'مدیریت گروه های منو',1,1,'ManageSystemFacilityGroups.php'),(5,'مدیریت کاربران',1,4,'ManageAccountSpecs.php'),(6,'تست',2,1,'test.php'),(7,'درس ها',2,2,'lessonList.php'),(8,'سابجکت',2,1,'subject.php'),(9,'تالار گفتگو',2,1,'forum.php'),(10,'محتوا درس',2,3,'LessonContent.php'),(11,'پست',2,1,'/post.php');
+INSERT INTO `systemfacilities` VALUES (1,'مدیریت افراد',1,3,'Managepersons.php'),(3,'مدیریت امکانات',1,2,'ManageSystemFacilities.php'),(4,'مدیریت گروه های منو',1,1,'ManageSystemFacilityGroups.php'),(5,'مدیریت کاربران',1,4,'ManageAccountSpecs.php'),(6,'موضوع ها',2,1,'subject.php'),(7,'منابع',2,1,'source.php'),(8,'درس ها',2,1,'lessonList.php');
 /*!40000 ALTER TABLE `systemfacilities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -671,7 +669,7 @@ CREATE TABLE `systemfacilitygroups` (
 
 LOCK TABLES `systemfacilitygroups` WRITE;
 /*!40000 ALTER TABLE `systemfacilitygroups` DISABLE KEYS */;
-INSERT INTO `systemfacilitygroups` VALUES (1,'مدیریت گروه های منو',1),(2,'عملیات کاری',3),(3,'گزارشات',4);
+INSERT INTO `systemfacilitygroups` VALUES (1,'مدیریت',1),(2,'عملیات کاری',3),(3,'گزارشات',4);
 /*!40000 ALTER TABLE `systemfacilitygroups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -686,7 +684,7 @@ CREATE TABLE `tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -695,6 +693,7 @@ CREATE TABLE `tag` (
 
 LOCK TABLES `tag` WRITE;
 /*!40000 ALTER TABLE `tag` DISABLE KEYS */;
+INSERT INTO `tag` VALUES (1,'test'),(2,'تاریخ پروژه'),(3,'1.0.0'),(4,'سلام'),(5,'1.0.1'),(6,'asaS'),(7,'fghfhg'),(8,'sad'),(9,'aaaaaaaaaaaaaa'),(10,'11111111'),(11,'asdsad'),(12,'تاریخ پروژه'),(13,'1.0.0'),(14,'1.0.1'),(15,'1.0.0'),(16,'sad');
 /*!40000 ALTER TABLE `tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -710,7 +709,7 @@ CREATE TABLE `userfacilities` (
   `UserID` varchar(100) COLLATE utf8_persian_ci DEFAULT NULL,
   `FacilityID` int(11) DEFAULT NULL,
   PRIMARY KEY (`FacilityPageID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -719,7 +718,7 @@ CREATE TABLE `userfacilities` (
 
 LOCK TABLES `userfacilities` WRITE;
 /*!40000 ALTER TABLE `userfacilities` DISABLE KEYS */;
-INSERT INTO `userfacilities` VALUES (1,'omid',1),(2,'omid',3),(3,'omid',4),(4,'omid',5),(5,'omid',6),(7,'omid',7),(8,'omid',8),(9,'omid',9),(10,'omid',10),(11,'omid',11);
+INSERT INTO `userfacilities` VALUES (1,'omid',1),(2,'omid',3),(3,'omid',4),(4,'omid',5),(5,'omid',6),(6,'omid',7),(7,'omid',8);
 /*!40000 ALTER TABLE `userfacilities` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -732,4 +731,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-06  2:03:20
+-- Dump completed on 2021-02-06  0:58:24
