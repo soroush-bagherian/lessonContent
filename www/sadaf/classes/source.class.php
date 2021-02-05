@@ -1,8 +1,6 @@
 <?php
 
-
 class source{
-
 
     public static function addAttachment(){
 		$mysql = pdodb::getInstance();
