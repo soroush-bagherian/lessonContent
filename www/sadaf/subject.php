@@ -11,8 +11,8 @@ if(isset($_REQUEST["add_subject"])){
     $lessonId =(int) $_REQUEST["subjects"];
     $subjectId = Subject::GetLastID("subject") + 1;
 
-    $isAddSubject =Subject::add($title);
-    $isAddSubject_lesson =Subject::setLessonSubject($subjectId ,$lessonId);
+    $isAddSubject =Subject::add($title,$lessonId);
+    $isAddSubject_lesson =Subject::setLessonSubject($lessonId ,$subjectId);
 
     if($isAddSubject and  $isAddSubject_lesson){
       echo "<div class='alert alert-success' role='alert'>
