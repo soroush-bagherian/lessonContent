@@ -85,7 +85,7 @@ if(isset($_REQUEST["save"]))
         <form class="col-md-12 bg-color bg-info text-white center" style="margin-bottom:5%; margin-top:5%; padding:5px;" >
             <div class="form-group ">
                 درس های خودم<input type="radio" name="mine" value="others" style=" margin-right:5%;">
-                درس های دیگران <input type="radio" name="mine" value="mine1" style="margin-right:2%; margin-top:2%;">
+                درس های دیگران <input type="radio" name="mine" value="mine1" style="margin-right:2%; margin-top:2%; " checked>
             </div>
             <button name="show_lesson" type="submit" class="btn btn-primary " style="margin:1vw; margin-right:1.8vw;">نمایش</button>
         </form>
@@ -125,9 +125,9 @@ if(isset($_REQUEST["save"]))
                                     echo "<tr>";
 
                                     echo '<th width=1%;>&nbsp;</th>';
-                                    echo '<th width=1%; >شماره</th>';
-                                    echo '<th width=1%; >کد</th>';
+                                    echo '<th  >کد</th>';
                                     echo "<th>درس</th>";
+                                    echo "<th>محتوا</th>";
                                     Lesson::getUserLesson();
                                     echo '<td colspan="4" class="text-center">
                                     <input type="submit" value="حذف" class="btn btn-danger btn-sm"
@@ -135,9 +135,10 @@ if(isset($_REQUEST["save"]))
 
                                 } else if($_REQUEST['mine'] == "others") {
                                     
-                                    echo '<th width=1%;>شماره</th>
-                                     <th width=1%;>کد</th>
-                                     <th>درس</th>';
+                                    echo '
+                                    <th width=1%;>کد</th>
+                                     <th>درس</th>
+                                     <th>محتوا </th>';
                                     Lesson::getAllLessons();
                                 }
                             }
