@@ -72,7 +72,7 @@ class Subject{
 		return $lesson;
 	}
 
-	public static function setLessonSubject($lessonID , $subjectID){
+	public static function setLessonSubject( $subjectID ,$lessonID){
 		$userId = $_SESSION["UserID"];
 		$ValueListArray = array();
 
@@ -111,6 +111,81 @@ class Subject{
 		return $lesson;
 	}
 
+
+
+	public static function edit_subject_form(){
+
+		$userId = $_SESSION["PersonID"];
+		$ValueListArray = array();
+		
+		$mysql = pdodb::getInstance();
+		$query = "select * , lesson.title as lessonTitle , subject.title as subjectTitle  from lesson 
+		join  subject_lesson on lesson.id = subject_lesson.lessonId
+		join  subject on subject.id = subject_lesson.subjectId
+		join person_lesson on lesson.id = person_lesson.lessonId 
+		where personid =?";
+		$mysql->Prepare($query);
+
+		$res = $mysql->ExecuteStatement(array($userId));
+
+		$row="";
+		$i=1;
+		while($rec = $res->fetch())
+		{
+			$row .='
+			<form>		 
+				<tr>
+					<th scope="row">'.$i.'</th>
+					<td>' .$rec["lessonTitle"]. '</td>
+					<td> <input name="sTitle" type="text" value='. $rec["subjectTitle"].'></td>
+					<input name="sId" type="hidden" value=" '. $rec["subjectId"] .'">
+					<td>
+					<input type="submit" name="edit" class="btn btn-warning" value="ویرایش">	
+					</td>
+				</tr>
+			</form>';
+			  $i++;
+		}
+
+
+		echo '<table dir="rtl" class="col-md-10 table table-striped" >
+		<thead>
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">درس</th>
+			<th scope="col">موضوع</th>
+			<th scope="col"></th>
+		  </tr>
+		</thead>
+		<tbody>'.		
+			$row
+		.'</tbody>
+	  </table>';
+	}
+
+
+	public static function edit_subject($sId , $newTitle){
+
+		$ValueListArray = array();
+		
+		$mysql = pdodb::getInstance();
+		$query = "UPDATE subject
+		SET title = ?
+		WHERE id = ?;";
+
+		array_push($ValueListArray, $newTitle); 
+		array_push($ValueListArray, $sId);
+
+		$mysql->Prepare($query);
+		$res = $mysql->ExecuteStatement($ValueListArray);
+
+		if($rec = $res->fetch())
+		{
+			return true;
+		}
+		return -1;
+
+	}
 
 }
 

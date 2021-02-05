@@ -11,14 +11,14 @@ CREATE TABLE  `sadaf`.`AccountSpecs` (
   `UserPassword` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `PersonID` int(11) DEFAULT NULL,
   PRIMARY KEY (`AccountSpecID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`EMonArray`;
 CREATE TABLE  `sadaf`.`EMonArray` (
   `_id` int(11) NOT NULL,
   `emon` int(11) DEFAULT NULL,
   PRIMARY KEY (`_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`FacilityPages`;
 CREATE TABLE  `sadaf`.`FacilityPages` (
@@ -26,14 +26,14 @@ CREATE TABLE  `sadaf`.`FacilityPages` (
   `FacilityID` int(11) DEFAULT NULL,
   `PageName` varchar(145) COLLATE utf8_persian_ci DEFAULT NULL,
   PRIMARY KEY (`FacilityPageID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`FMonArray`;
 CREATE TABLE  `sadaf`.`FMonArray` (
   `_id` int(11) NOT NULL,
   `fmon` int(11) DEFAULT NULL,
   PRIMARY KEY (`_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`persons`;
 CREATE TABLE  `sadaf`.`persons` (
@@ -42,7 +42,7 @@ CREATE TABLE  `sadaf`.`persons` (
   `plname` varchar(45) COLLATE utf8_persian_ci DEFAULT NULL,
   `CardNumber` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`PersonID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`SysAudit`;
 CREATE TABLE  `sadaf`.`SysAudit` (
@@ -56,7 +56,7 @@ CREATE TABLE  `sadaf`.`SysAudit` (
   `ATS` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`RecID`),
   KEY `UserID` (`UserID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`SystemDBLog`;
 CREATE TABLE  `sadaf`.`SystemDBLog` (
@@ -73,14 +73,14 @@ CREATE TABLE  `sadaf`.`SystemDBLog` (
   `DBName` varchar(30) COLLATE utf8_persian_ci DEFAULT '' COMMENT 'نام پایگاه داده',
   PRIMARY KEY (`RecID`),
   KEY `UserID` (`UserID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`SpecialPages`;
 CREATE TABLE  `sadaf`.`SpecialPages` (
   `SpecialPageID` int(11) NOT NULL AUTO_INCREMENT,
   `PageName` varchar(245) COLLATE utf8_persian_ci DEFAULT NULL,
   PRIMARY KEY (`SpecialPageID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`SystemFacilities`;
 CREATE TABLE  `sadaf`.`SystemFacilities` (
@@ -90,7 +90,7 @@ CREATE TABLE  `sadaf`.`SystemFacilities` (
   `OrderNo` int(11) DEFAULT NULL,
   `PageAddress` varchar(345) COLLATE utf8_persian_ci DEFAULT NULL,
   PRIMARY KEY (`FacilityID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`SystemFacilityGroups`;
 CREATE TABLE  `sadaf`.`SystemFacilityGroups` (
@@ -98,7 +98,7 @@ CREATE TABLE  `sadaf`.`SystemFacilityGroups` (
   `GroupName` varchar(145) COLLATE utf8_persian_ci DEFAULT NULL,
   `OrderNo` int(11) DEFAULT NULL,
   PRIMARY KEY (`GroupID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 DROP TABLE IF EXISTS `sadaf`.`UserFacilities`;
 CREATE TABLE  `sadaf`.`UserFacilities` (
@@ -106,9 +106,213 @@ CREATE TABLE  `sadaf`.`UserFacilities` (
   `UserID` varchar(100) COLLATE utf8_persian_ci DEFAULT NULL,
   `FacilityID` int(11) DEFAULT NULL,
   PRIMARY KEY (`FacilityPageID`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+DROP TABLE IF EXISTS `attachment`;
+CREATE TABLE IF NOT EXISTS `attachment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `description` text COLLATE utf8_persian_ci NOT NULL,
+  `attachment` text COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+DROP TABLE IF EXISTS `file`;
+CREATE TABLE IF NOT EXISTS `file` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `description` text COLLATE utf8_persian_ci NOT NULL,
+  `src` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+
+DROP TABLE IF EXISTS `folder`;
+CREATE TABLE IF NOT EXISTS `folder` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `description` text COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+DROP TABLE IF EXISTS `lesson`;
+CREATE TABLE IF NOT EXISTS `lesson` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` int(11) NOT NULL,
+  `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `code` (`code`),
+  UNIQUE KEY `title` (`title`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `lesson`
+--
+
+INSERT INTO `lesson` (`id`, `code`, `title`) VALUES
+(1, 105, 'مبانی برنامه نویسی');
+
+
+DROP TABLE IF EXISTS `page`;
+CREATE TABLE IF NOT EXISTS `page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  `description` text COLLATE utf8_persian_ci NOT NULL,
+  `content` text COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+
+DROP TABLE IF EXISTS `person_lesson`;
+CREATE TABLE IF NOT EXISTS `person_lesson` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `personid` int(11) NOT NULL,
+  `lessonid` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personid` (`personid`),
+  UNIQUE KEY `lessonid` (`lessonid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `person_lesson`
+--
+
+INSERT INTO `person_lesson` (`id`, `personid`, `lessonid`) VALUES
+(1, 1, 1);
+
+
+DROP TABLE IF EXISTS `subject`;
+CREATE TABLE IF NOT EXISTS `subject` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+
+
+DROP TABLE IF EXISTS `subject_attachmebt`;
+CREATE TABLE IF NOT EXISTS `subject_attachmebt` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subjectId` int(11) NOT NULL,
+  `attachmentId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subjectId` (`subjectId`),
+  KEY `attachmentId` (`attachmentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+
+DROP TABLE IF EXISTS `subject_file`;
+CREATE TABLE IF NOT EXISTS `subject_file` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subjectId` int(11) NOT NULL,
+  `fileId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subjectId` (`subjectId`),
+  KEY `fileId` (`fileId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+DROP TABLE IF EXISTS `subject_folder`;
+CREATE TABLE IF NOT EXISTS `subject_folder` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subjectId` int(11) NOT NULL,
+  `folderId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subjectId` (`subjectId`),
+  KEY `folderId` (`folderId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+DROP TABLE IF EXISTS `subject_lesson`;
+CREATE TABLE IF NOT EXISTS `subject_lesson` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subjectId` int(11) NOT NULL,
+  `lessonId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subjectId` (`subjectId`),
+  KEY `lessonId` (`lessonId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+DROP TABLE IF EXISTS `subject_page`;
+CREATE TABLE IF NOT EXISTS `subject_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subjectId` int(11) NOT NULL,
+  `pageId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subjectId` (`subjectId`),
+  KEY `pageId` (`pageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+
+
+DROP TABLE IF EXISTS `subject_tag`;
+CREATE TABLE IF NOT EXISTS `subject_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subjectId` int(11) NOT NULL,
+  `tagId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subjectId` (`subjectId`),
+  KEY `tagId` (`tagId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+
+DROP TABLE IF EXISTS `tag`;
+CREATE TABLE IF NOT EXISTS `tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+
+ALTER TABLE `person_lesson`
+  ADD CONSTRAINT `person_lesson_ibfk_1` FOREIGN KEY (`lessonid`) REFERENCES `lesson` (`id`),
+  ADD CONSTRAINT `person_lesson_ibfk_2` FOREIGN KEY (`personid`) REFERENCES `persons` (`PersonID`);
+
+--
+-- Constraints for table `subject_attachmebt`
+--
+ALTER TABLE `subject_attachmebt`
+  ADD CONSTRAINT `subject_attachmebt_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`),
+  ADD CONSTRAINT `subject_attachmebt_ibfk_2` FOREIGN KEY (`attachmentId`) REFERENCES `attachment` (`id`);
+
+--
+-- Constraints for table `subject_file`
+--
+ALTER TABLE `subject_file`
+  ADD CONSTRAINT `subject_file_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`),
+  ADD CONSTRAINT `subject_file_ibfk_2` FOREIGN KEY (`fileId`) REFERENCES `file` (`id`);
+
+--
+-- Constraints for table `subject_folder`
+--
+ALTER TABLE `subject_folder`
+  ADD CONSTRAINT `subject_folder_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`),
+  ADD CONSTRAINT `subject_folder_ibfk_2` FOREIGN KEY (`folderId`) REFERENCES `folder` (`id`);
+
+--
+-- Constraints for table `subject_lesson`
+--
+ALTER TABLE `subject_lesson`
+  ADD CONSTRAINT `subject_lesson_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`),
+  ADD CONSTRAINT `subject_lesson_ibfk_2` FOREIGN KEY (`lessonId`) REFERENCES `lesson` (`id`);
+
+--
+-- Constraints for table `subject_page`
+--
+ALTER TABLE `subject_page`
+  ADD CONSTRAINT `subject_page_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`),
+  ADD CONSTRAINT `subject_page_ibfk_2` FOREIGN KEY (`pageId`) REFERENCES `page` (`id`);
+
+--
+-- Constraints for table `subject_tag`
+--
+ALTER TABLE `subject_tag`
+  ADD CONSTRAINT `subject_tag_ibfk_1` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`id`),
+  ADD CONSTRAINT `subject_tag_ibfk_2` FOREIGN KEY (`tagId`) REFERENCES `tag` (`id`);
+COMMIT;
+
+
 
 INSERT INTO sadaf.SpecialPages VALUES (1,'main.php'),(2,'/main.php'),(3,'/Menu.php'),(4,'/MainContent.php'),(5,'/ChangePassword.php'),(6,'/MyActions.php'),(7,'/SelectPersonel.php'),(8,'/SelectCustomer.php'),(9,'/SelectStaff.php'),(10,'/GetExamItemPrice.php');
+
 
 insert into sadaf.persons (pfname, plname, CardNumber) values ('اميد', 'ميلاني فرد', '0');
 
