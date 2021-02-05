@@ -17,15 +17,14 @@ if ($_GET['subjectid'])
 
 if(isset($_POST['saveforum']))
 {
-
-    $isAddForum =Forum::add($subjectid,$_REQUEST['forum_title'],$_SESSION["PersonID"],1);
-
+    $isAddForum =Forum::add($subjectid,$_REQUEST['forum_title'],$_SESSION["PersonID"],$_REQUEST["status"],$_REQUEST["for_description"]);
     if($isAddForum){
         echo "<div class='alert alert-success' role='alert'>
-        This is a success alert—check it out!
+        گفتگوی جدید ثبت شد!
         </div>";
       }
 }
+
 
 HTMLBegin();
 ?>
@@ -50,18 +49,19 @@ $mysql = pdodb::getInstance();
 		{
             echo '<h1>'.$rec["title"].'</h1>'; 
         }
-        //Forum::getSubjectForums($_GET['subjectid']);
 
 }
                         ?>
 </header>
 
-<table class="table  table-bordered table-striped table-sm ">
+<table class="table  table-bordered table-striped table-sm " style="margin-top:5vw">
         <thead>
             <tr>
+            
             <th >موضوع گفتگو</th>
             <th>تاریخ ثبت</th>
             <th>شروع کننده</th>
+            <th >وضعیت</th>
             <?php
             Forum::getSubjectForums($_GET['subjectid']);
 
@@ -72,13 +72,16 @@ $mysql = pdodb::getInstance();
 
 </table>
    
-<form method="post" action="">
+<form method="post" action="" style="margin-right: 5vw; ">
     <p>:موضوع گفتگو</p>  
     <input type="text" name="forum_title" />
     <p>:توضیحات گفتگو</p> 
-    <textarea name="cat_description" /></textarea>
-    <br>
-    <input type="submit" value="ایجاد" name="saveforum" id="saveforum" class="btn btn-primary" />
+    <textarea name="for_description" value="for_description" /></textarea>
+    <p>:وضعیت</p>
+    فعال<input type="radio" name="status" value="off" style=" margin-right:5%;">
+     غیرفعال <input type="radio" name="status" value="on" style="margin-right:2%; " checked>
+     <br>
+    <input type="submit" value="ایجاد" name="saveforum" id="saveforum" class="btn btn-primary" style="margin-top: 1vw;" />
  </form>
 
 </body>
