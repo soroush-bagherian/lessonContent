@@ -343,7 +343,7 @@ CREATE TABLE `posts` (
   `post_id` int(8) NOT NULL AUTO_INCREMENT,
   `post_content` text COLLATE utf8_persian_ci NOT NULL,
   `post_date` datetime NOT NULL,
-  `post_topic` int(8) NOT NULL,
+  `post_topic` VARCHAR(50) NOT NULL,
   `post_by` int(8) NOT NULL,
   `post_forum` int(8) NOT NULL,
   PRIMARY KEY (`post_id`),

@@ -15,7 +15,7 @@ if ($_GET['forumid'])
 if(isset($_POST['savepost']))
 {
 
-    $isAddForum =Post::add($_REQUEST['content'],$_SESSION["PersonID"],$_REQUEST['topic'],$forumid);
+    $isAddForum =Post::add($forumid,$_REQUEST['content'],$_SESSION["PersonID"],$_REQUEST['topic']);
 
     if($isAddForum){
         echo "<div class='alert alert-success' role='alert'>
@@ -56,9 +56,10 @@ $mysql = pdodb::getInstance();
 <table class="table  table-bordered table-striped table-sm ">
         <thead>
             <tr>
-            <th >موضوع گفتگو</th>
-            <th>تاریخ ثبت</th>
-            <th>شروع کننده</th>
+            <th >نویسنده</th>
+            <th>موضوع</th>
+            <th>&nbsp;</th>
+            <th>تاریخ</th>
             <?php
             Post::getForumPosts($forumid);
 
@@ -75,7 +76,7 @@ $mysql = pdodb::getInstance();
     <p>:توضیحات پست</p> 
     <textarea name="content" /></textarea>
     <br>
-    <input type="submit" value="ایجاد" name="saveforum" id="saveforum" class="btn btn-primary" />
+    <input type="submit" value="ایجاد" name="savepost" id="savepost" class="btn btn-primary" />
  </form>
 
 </body>

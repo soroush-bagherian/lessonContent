@@ -53,7 +53,7 @@ class Post{
             echo "<tr>";
             echo "<td>".htmlentities($rec["pfname"], ENT_QUOTES,"UTF-8")." ".htmlentities($rec["plname"], ENT_QUOTES,"UTF-8")."</td>";
             echo "<td>".htmlentities($rec["post_topic"], ENT_QUOTES,"UTF-8")."</td>";
-            echo "<td>".htmlentities($rec["post_description"], ENT_QUOTES,"UTF-8")."</td>";
+            echo "<td>".htmlentities($rec["post_content"], ENT_QUOTES,"UTF-8")."</td>";
             echo "<td>".htmlentities($rec["post_date"], ENT_QUOTES,"UTF-8")."</td>";
             
             echo "</tr>";
