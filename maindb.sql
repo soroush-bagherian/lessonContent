@@ -102,11 +102,7 @@ CREATE TABLE `facilitypages` (
   `FacilityID` int(11) DEFAULT NULL,
   `PageName` varchar(145) COLLATE utf8_persian_ci DEFAULT NULL,
   PRIMARY KEY (`FacilityPageID`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
->>>>>>> a3cbe46769917cfd6a2ecd212a55d0158c6dd9ce
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,11 +111,7 @@ CREATE TABLE `facilitypages` (
 
 LOCK TABLES `facilitypages` WRITE;
 /*!40000 ALTER TABLE `facilitypages` DISABLE KEYS */;
-<<<<<<< HEAD
-INSERT INTO `facilitypages` VALUES (3,3,'/ManageSystemFacilities.php'),(4,3,'/ManageFacilityPages.php'),(5,3,'/ManageSystemFacilities.php'),(6,3,'/ManageUserFacilities.php'),(7,4,'/ManageSystemFacilityGroups.php'),(8,1,'/Managepersons.php'),(9,5,'/ManageAccountSpecs.php'),(25,5,'/ManageUserPermissions.php'),(48,12,'/GetJasonData.php'),(49,6,'/test.php'),(50,7,'/lessonList.php'),(51,8,'/subject.php'),(52,9,'/forum.php'),(53,10,'/LessonContent.php'),(54,11,'/post.php');
-=======
-INSERT INTO `facilitypages` VALUES (3,3,'/ManageSystemFacilities.php'),(4,3,'/ManageFacilityPages.php'),(5,3,'/ManageSystemFacilities.php'),(6,3,'/ManageUserFacilities.php'),(7,4,'/ManageSystemFacilityGroups.php'),(8,1,'/Managepersons.php'),(9,5,'/ManageAccountSpecs.php'),(25,5,'/ManageUserPermissions.php'),(48,12,'/GetJasonData.php'),(52,9,'/forum.php'),(53,10,'/LessonContent.php'),(54,11,'/post.php'),(55,7,'/source.php'),(56,8,'/lessonList.php'),(57,6,'/subject.php');
->>>>>>> a3cbe46769917cfd6a2ecd212a55d0158c6dd9ce
+INSERT INTO `facilitypages` VALUES (3,3,'/ManageSystemFacilities.php'),(4,3,'/ManageFacilityPages.php'),(5,3,'/ManageSystemFacilities.php'),(6,3,'/ManageUserFacilities.php'),(7,4,'/ManageSystemFacilityGroups.php'),(8,1,'/Managepersons.php'),(9,5,'/ManageAccountSpecs.php'),(25,5,'/ManageUserPermissions.php'),(48,12,'/GetJasonData.php'),(49,6,'/test.php'),(50,7,'/lessonList.php'),(51,8,'/subject.php'),(52,9,'/forum.php'),(53,10,'/LessonContent.php'),(54,11,'/post.php'),(57,6,'/subject.php');
 /*!40000 ALTER TABLE `facilitypages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -584,11 +576,9 @@ CREATE TABLE `sysaudit` (
   `ATS` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`RecID`),
   KEY `UserID` (`UserID`)
-<<<<<<< HEAD
+
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
->>>>>>> a3cbe46769917cfd6a2ecd212a55d0158c6dd9ce
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -597,11 +587,9 @@ CREATE TABLE `sysaudit` (
 
 LOCK TABLES `sysaudit` WRITE;
 /*!40000 ALTER TABLE `sysaudit` DISABLE KEYS */;
-<<<<<<< HEAD
-INSERT INTO `sysaudit` VALUES (1,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: ',0,0,NULL,'2021-02-03 07:31:23'),(2,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: ',0,0,NULL,'2021-02-03 07:34:21'),(3,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: گروه',0,0,NULL,'2021-02-03 07:35:03'),(4,'omid',NULL,'ثبت داده جدید در  با کد 5',2130706433,0,NULL,'2021-02-03 07:45:31'),(5,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: گروه',2130706433,0,NULL,'2021-02-03 07:45:45'),(6,'omid',NULL,'ثبت داده جدید در  با کد 6',2130706433,0,NULL,'2021-02-03 07:46:35'),(7,'omid',NULL,'حذف داده با شماره شناسایی 6 از ',2130706433,0,NULL,'2021-02-03 07:46:37'),(8,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-03 07:54:40'),(9,'omid',NULL,'ثبت داده جدید در  با کد 50',0,0,NULL,'2021-02-03 07:54:58'),(10,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-03 07:55:13'),(11,'omid',NULL,'ثبت داده جدید در  با کد 8',0,0,NULL,'2021-02-03 10:45:58'),(12,'omid',NULL,'ثبت داده جدید در  با کد 8',0,0,NULL,'2021-02-03 10:46:04'),(13,'omid',NULL,'ثبت داده جدید در  با کد 51',0,0,NULL,'2021-02-03 10:46:18'),(14,'omid',NULL,'بروز رسانی داده با شماره شناسایی 50 در  - موارد تغییر داده شده: صفحه',0,0,NULL,'2021-02-03 11:06:29'),(15,'omid',NULL,'بروز رسانی داده با شماره شناسایی 7 در  - موارد تغییر داده شده: آدرس صفحه',0,0,NULL,'2021-02-03 11:08:00'),(16,'omid',NULL,'بروز رسانی داده با شماره شناسایی 7 در  - موارد تغییر داده شده: آدرس صفحه',0,0,NULL,'2021-02-03 14:09:27'),(17,'omid',NULL,'بروز رسانی داده با شماره شناسایی 50 در  - موارد تغییر داده شده: صفحه',0,0,NULL,'2021-02-03 14:09:43'),(18,'omid',NULL,'بروز رسانی داده با شماره شناسایی 1 در  - موارد تغییر داده شده: نام ',0,0,NULL,'2021-02-03 19:51:34'),(19,'omid',NULL,'بروز رسانی داده با شماره شناسایی 1 در  - موارد تغییر داده شده: نام ',0,0,NULL,'2021-02-03 19:51:57'),(20,'omid',NULL,'ثبت داده جدید در  با کد 9',0,0,NULL,'2021-02-05 07:40:08'),(21,'omid',NULL,'ثبت داده جدید در  با کد 9',0,0,NULL,'2021-02-05 07:40:17'),(22,'omid',NULL,'ثبت داده جدید در  با کد 52',0,0,NULL,'2021-02-05 07:40:32'),(23,'omid',NULL,'ثبت داده جدید در  با کد 10',0,0,NULL,'2021-02-05 10:03:44'),(24,'omid',NULL,'ثبت داده جدید در  با کد 10',0,0,NULL,'2021-02-05 10:03:59'),(25,'omid',NULL,'ثبت داده جدید در  با کد 53',0,0,NULL,'2021-02-05 10:04:19'),(26,'omid',NULL,'ثبت داده جدید در  با کد 11',0,0,NULL,'2021-02-05 20:22:00'),(27,'omid',NULL,'ثبت داده جدید در  با کد 54',0,0,NULL,'2021-02-05 20:22:10'),(28,'omid',NULL,'ثبت داده جدید در  با کد 11',0,0,NULL,'2021-02-05 20:22:25');
-=======
+
 INSERT INTO `sysaudit` VALUES (1,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: ',0,0,NULL,'2021-02-03 07:31:23'),(2,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: ',0,0,NULL,'2021-02-03 07:34:21'),(3,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: گروه',0,0,NULL,'2021-02-03 07:35:03'),(4,'omid',NULL,'ثبت داده جدید در  با کد 5',2130706433,0,NULL,'2021-02-03 07:45:31'),(5,'omid',NULL,'بروز رسانی داده با شماره شناسایی 6 در  - موارد تغییر داده شده: گروه',2130706433,0,NULL,'2021-02-03 07:45:45'),(6,'omid',NULL,'ثبت داده جدید در  با کد 6',2130706433,0,NULL,'2021-02-03 07:46:35'),(7,'omid',NULL,'حذف داده با شماره شناسایی 6 از ',2130706433,0,NULL,'2021-02-03 07:46:37'),(8,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-03 07:54:40'),(9,'omid',NULL,'ثبت داده جدید در  با کد 50',0,0,NULL,'2021-02-03 07:54:58'),(10,'omid',NULL,'ثبت داده جدید در  با کد 7',0,0,NULL,'2021-02-03 07:55:13'),(11,'omid',NULL,'ثبت داده جدید در  با کد 8',0,0,NULL,'2021-02-03 10:45:58'),(12,'omid',NULL,'ثبت داده جدید در  با کد 8',0,0,NULL,'2021-02-03 10:46:04'),(13,'omid',NULL,'ثبت داده جدید در  با کد 51',0,0,NULL,'2021-02-03 10:46:18'),(14,'omid',NULL,'بروز رسانی داده با شماره شناسایی 50 در  - موارد تغییر داده شده: صفحه',0,0,NULL,'2021-02-03 11:06:29'),(15,'omid',NULL,'بروز رسانی داده با شماره شناسایی 7 در  - موارد تغییر داده شده: آدرس صفحه',0,0,NULL,'2021-02-03 11:08:00'),(16,'omid',NULL,'بروز رسانی داده با شماره شناسایی 7 در  - موارد تغییر داده شده: آدرس صفحه',0,0,NULL,'2021-02-03 14:09:27'),(17,'omid',NULL,'بروز رسانی داده با شماره شناسایی 50 در  - موارد تغییر داده شده: صفحه',0,0,NULL,'2021-02-03 14:09:43'),(18,'omid',NULL,'بروز رسانی داده با شماره شناسایی 1 در  - موارد تغییر داده شده: نام ',0,0,NULL,'2021-02-03 19:51:34'),(19,'omid',NULL,'بروز رسانی داده با شماره شناسایی 1 در  - موارد تغییر داده شده: نام ',0,0,NULL,'2021-02-03 19:51:57'),(20,'omid',NULL,'ثبت داده جدید در  با کد 9',0,0,NULL,'2021-02-05 07:40:08'),(21,'omid',NULL,'ثبت داده جدید در  با کد 9',0,0,NULL,'2021-02-05 07:40:17'),(22,'omid',NULL,'ثبت داده جدید در  با کد 52',0,0,NULL,'2021-02-05 07:40:32'),(23,'omid',NULL,'ثبت داده جدید در  با کد 10',0,0,NULL,'2021-02-05 10:03:44'),(24,'omid',NULL,'ثبت داده جدید در  با کد 10',0,0,NULL,'2021-02-05 10:03:59'),(25,'omid',NULL,'ثبت داده جدید در  با کد 53',0,0,NULL,'2021-02-05 10:04:19'),(26,'omid',NULL,'ثبت داده جدید در  با کد 11',0,0,NULL,'2021-02-05 20:22:00'),(27,'omid',NULL,'ثبت داده جدید در  با کد 54',0,0,NULL,'2021-02-05 20:22:10'),(28,'omid',NULL,'ثبت داده جدید در  با کد 11',0,0,NULL,'2021-02-05 20:22:25'),(29,'omid',NULL,'حذف داده با شماره شناسایی 50 از ',0,0,NULL,'2021-02-06 07:40:27'),(30,'omid',NULL,'حذف داده با شماره شناسایی 51 از ',0,0,NULL,'2021-02-06 07:41:24'),(31,'omid',NULL,'حذف داده با شماره شناسایی 49 از ',0,0,NULL,'2021-02-06 07:42:10');
->>>>>>> a3cbe46769917cfd6a2ecd212a55d0158c6dd9ce
+
 /*!40000 ALTER TABLE `sysaudit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -662,11 +650,9 @@ CREATE TABLE `systemfacilities` (
 
 LOCK TABLES `systemfacilities` WRITE;
 /*!40000 ALTER TABLE `systemfacilities` DISABLE KEYS */;
-<<<<<<< HEAD
+
 INSERT INTO `systemfacilities` VALUES (1,'مدیریت افراد',1,3,'Managepersons.php'),(3,'مدیریت امکانات',1,2,'ManageSystemFacilities.php'),(4,'مدیریت گروه های منو',1,1,'ManageSystemFacilityGroups.php'),(5,'مدیریت کاربران',1,4,'ManageAccountSpecs.php'),(6,'تست',2,1,'test.php'),(7,'درس ها',2,2,'lessonList.php'),(8,'سابجکت',2,1,'subject.php'),(9,'تالار گفتگو',2,1,'forum.php'),(10,'محتوا درس',2,3,'LessonContent.php'),(11,'پست',2,1,'/post.php');
-=======
-INSERT INTO `systemfacilities` VALUES (1,'مدیریت افراد',1,3,'Managepersons.php'),(3,'مدیریت امکانات',1,2,'ManageSystemFacilities.php'),(4,'مدیریت گروه های منو',1,1,'ManageSystemFacilityGroups.php'),(5,'مدیریت کاربران',1,4,'ManageAccountSpecs.php'),(6,'موضوع ها',2,1,'subject.php'),(7,'منابع',2,1,'source.php'),(8,'درس ها',2,1,'lessonList.php'),(9,'تالار گفتگو',2,1,'forum.php'),(10,'محتوا درس',2,3,'LessonContent.php'),(11,'پست',2,1,'/post.php');
->>>>>>> a3cbe46769917cfd6a2ecd212a55d0158c6dd9ce
+
 /*!40000 ALTER TABLE `systemfacilities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -752,8 +738,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
 -- Dump completed on 2021-02-06  2:03:20
-=======
--- Dump completed on 2021-02-06 11:15:40
->>>>>>> a3cbe46769917cfd6a2ecd212a55d0158c6dd9ce
