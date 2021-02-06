@@ -1,12 +1,14 @@
 <?php
 
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 class Lesson{
     public $id;
     public $code;
     public $title;
-
+    public static $updateid;
 
 	public static function getUserLesson(){
 		
@@ -14,7 +16,7 @@ class Lesson{
 		$ValueListArray = array();
 		
 		$mysql = pdodb::getInstance();
-		$query = "select * from persons
+		$query = "select * from persons 
 		join person_lesson on persons.PersonID=person_lesson.personid
 		join lesson on lesson.id = person_lesson.lessonid
 		where persons.PersonID=?";
@@ -32,6 +34,7 @@ class Lesson{
             echo "</td>";
             echo "<td>".htmlentities($rec["code"], ENT_QUOTES,"UTF-8")."</td>";
             echo "<td>".htmlentities($rec["title"], ENT_QUOTES,"UTF-8")."</td>";
+            echo "<td><a class='btn btn-primary' href='LessonList.php?updateid=".$rec["id"]."'>*</a></td>";
             echo "<td><a class='btn btn-primary' href='LessonContent.php?lessonid=".$rec["id"]."'>i</a></td>";
             echo "</tr>";
 		}
@@ -40,7 +43,7 @@ class Lesson{
     public static function getAllLessons(){
 		
 		$mysql = pdodb::getInstance();
-		$query = "select * from lesson";
+		$query = "select * from lesson order by id DESC";
 		$mysql->Prepare($query);
 
 		$res = $mysql->Execute($query);
@@ -75,7 +78,7 @@ class Lesson{
 		{
             $CName="le_".$rec["id"];
             if(isset($_REQUEST[$CName])){
-                $query="delete from lesson where id=".$rec["id"];
+                $query="delete from lesson where id=".$rec["id"].";";
                 $query.="delete from person_lesson where lessonid=".$rec["id"];
                 $mysql->Execute($query);
 
