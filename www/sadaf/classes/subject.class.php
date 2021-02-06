@@ -132,8 +132,8 @@ class Subject{
 				<tr>
 					<th scope="row">'.$i.'</th>
 					<td>' .$rec["lessonTitle"]. '</td>
-					<td> <input name="sTitle" type="text" value='. $rec["subjectTitle"].'></td>
-					<input name="sId" type="hidden" value=" '. $rec["subjectId"] .'">
+					<td> <input name="sTitle" type="text" value= "'.  $rec["subjectTitle"].'" ></td>
+					<input name="sId" type="hidden" value= '. $rec["subjectId"] .' ">
 					<td>
 					<input type="submit" name="edit" class="btn btn-warning" value="ویرایش">	
 					</td>
@@ -160,7 +160,7 @@ class Subject{
 
 
 	public static function edit_subject($sId , $newTitle){
-
+		
 		$ValueListArray = array();
 		
 		$mysql = pdodb::getInstance();
